@@ -13,4 +13,7 @@ public class WeatherApiConfiguration {
 
     @Value("${weatherbit.api.key}")
     private String weatherApiKey;
+
+    @Value("${weatherbit.api.city}")
+    private String weatherApiForecastCity;
 }

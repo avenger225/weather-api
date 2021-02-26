@@ -1,6 +1,6 @@
-package com.project.weather.client;
+package com.project.weather.webclient;
 
-import com.project.weather.client.dto.ForecastDto;
+import com.project.weather.webclient.dto.ForecastDto;
 import com.project.weather.configuration.WeatherApiConfiguration;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -13,8 +13,7 @@ public class WeatherClient {
     private final WeatherApiConfiguration weatherApiConfiguration;
 
     public ForecastDto getWeatherForCity(String city) {
-        System.out.println("test: " + weatherApiConfiguration.getWeatherApiKey());
-        return callGetMethod("/forecast/daily?city={city}&key={API_KEY}",
+        return callGetMethod(weatherApiConfiguration.getWeatherApiForecastCity(),
                 ForecastDto.class,
                 city, weatherApiConfiguration.getWeatherApiKey());
     }

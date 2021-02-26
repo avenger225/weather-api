@@ -1,4 +1,4 @@
-package com.project.weather.client.dto;
+package com.project.weather.webclient.dto;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,13 +14,13 @@ import java.time.LocalDate;
 public class WeatherDto {
     private double windSpeed;
     private LocalDate date;
-    private double temp;
+    private double temperature;
 
     @JsonCreator
     public WeatherDto(@JsonProperty("wind_spd") double windSpeed, @JsonProperty("valid_date") LocalDate date,
-                      @JsonProperty("temp") double temp) {
+                      @JsonProperty("temp") double temperature) {
         this.windSpeed = windSpeed;
         this.date = date;
-        this.temp = temp;
+        this.temperature = temperature;
     }
 }
