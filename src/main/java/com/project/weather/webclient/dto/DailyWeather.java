@@ -1,19 +1,22 @@
 package com.project.weather.webclient.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
-
 @Component
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
 public class DailyWeather {
     private String city;
-    private LocalDate date;
     private double windSpeed;
     private double temperature;
+    private double bestLocationValue;
+
+    public DailyWeather(String city, double windSpeed, double temperature) {
+        this.city = city;
+        this.windSpeed = windSpeed;
+        this.temperature = temperature;
+        this.bestLocationValue = (windSpeed / 3) + temperature;
+    }
 }

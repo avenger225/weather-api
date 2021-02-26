@@ -37,4 +37,9 @@ public class WeatherController {
     public List<SurfingLocation> getSurfingLocations() {
         return weatherService.getSurfingLocations();
     }
+
+    @GetMapping("/best-surfing-location/{date}")
+    public String getBestSurfingLocationForDate(@PathVariable String date){
+        return weatherService.getBestSurfingLocationForDate(weatherService.getDailyWeatherMap(weatherService.getSurfingWeather()), LocalDate.parse(date));
+    }
 }
