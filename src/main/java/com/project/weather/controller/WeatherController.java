@@ -2,13 +2,16 @@ package com.project.weather.controller;
 
 import com.project.weather.model.SurfingLocation;
 import com.project.weather.service.WeatherService;
+import com.project.weather.webclient.dto.DailyWeather;
 import com.project.weather.webclient.dto.Forecast;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @AllArgsConstructor
@@ -23,6 +26,11 @@ public class WeatherController {
     @GetMapping("/weather/surfing")
     public List<Forecast> getSurfingWeather() {
         return weatherService.getSurfingWeather();
+    }
+
+    @GetMapping("/weather/map")
+    public Map<LocalDate, List<DailyWeather>> getDailyWeatherMap() {
+        return weatherService.getDailyWeatherMap(weatherService.getSurfingWeather());
     }
 
     @GetMapping("/surfing-locations")
