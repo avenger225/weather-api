@@ -1,5 +1,6 @@
 package com.project.weather.service;
 
+import com.project.weather.configuration.SurfingConditionsConfiguration;
 import com.project.weather.model.SurfingLocation;
 import com.project.weather.repository.SurfingLocationRepository;
 import com.project.weather.webclient.WeatherClient;
@@ -24,6 +25,7 @@ import java.util.stream.Collectors;
 public class WeatherService {
 
     private final WeatherClient weatherClient;
+    private final SurfingConditionsConfiguration surfingConditionsConfiguration;
     private final SurfingLocationRepository surfingLocationRepository;
 
     public Forecast getWeather(final String city) {
@@ -43,14 +45,16 @@ public class WeatherService {
         final Map<LocalDate, List<DailyWeather>> dateDailyWeatherMap = new HashMap<>();
         for (Forecast forecast: forecastList) {
             for (Weather weather: forecast.getWeatherList()) {
-                if (dateDailyWeatherMap.containsKey(weather.getDate())) {
-                    dateDailyWeatherMap.
-                            get(weather.getDate()).
-                            add(new DailyWeather(forecast.getCityName(), weather.getDate(), weather.getWindSpeed(), weather.getTemperature()));
-                } else {
-                    dateDailyWeatherMap.
-                            computeIfAbsent(weather.getDate(), k -> new ArrayList<>()).
-                            add(new DailyWeather(forecast.getCityName(), weather.getDate(), weather.getWindSpeed(), weather.getTemperature()));
+                if (surfingConditionsConfiguration.weatherSuitableForSurfing(weather.getWindSpeed(), weather.getTemperature())) {
+                    if (dateDailyWeatherMap.containsKey(weather.getDate())) {
+                        dateDailyWeatherMap.
+                                get(weather.getDate()).
+                                add(new DailyWeather(forecast.getCityName(), weather.getDate(), weather.getWindSpeed(), weather.getTemperature()));
+                    } else {
+                        dateDailyWeatherMap.
+                                computeIfAbsent(weather.getDate(), k -> new ArrayList<>()).
+                                add(new DailyWeather(forecast.getCityName(), weather.getDate(), weather.getWindSpeed(), weather.getTemperature()));
+                    }
                 }
             }
         }
