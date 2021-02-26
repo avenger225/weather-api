@@ -20,6 +20,11 @@ public class WeatherController {
         return weatherService.getWeather(city);
     }
 
+    @GetMapping("/weather/surfing")
+    public List<ForecastDto> getSurfingWeather() {
+        return weatherService.getSurfingWeather();
+    }
+
     @GetMapping("/surfing-locations")
     public List<SurfingLocation> getSurfingLocations() {
         return weatherService.getSurfingLocations();
