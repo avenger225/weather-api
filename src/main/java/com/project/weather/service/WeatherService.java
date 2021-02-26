@@ -3,7 +3,7 @@ package com.project.weather.service;
 import com.project.weather.model.SurfingLocation;
 import com.project.weather.repository.SurfingLocationRepository;
 import com.project.weather.webclient.WeatherClient;
-import com.project.weather.webclient.dto.ForecastDto;
+import com.project.weather.webclient.dto.Forecast;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ public class WeatherService {
     private final WeatherClient weatherClient;
     private final SurfingLocationRepository surfingLocationRepository;
 
-    public ForecastDto getWeather(final String city) {
+    public Forecast getWeather(final String city) {
         return weatherClient.getWeatherForCity(city);
     }
 
@@ -27,7 +27,7 @@ public class WeatherService {
         return surfingLocationRepository.findAll();
     }
 
-    public List<ForecastDto> getSurfingWeather() {
+    public List<Forecast> getSurfingWeather() {
         return getSurfingLocations().stream().map(surfingLocation -> getWeather(surfingLocation.getCity())).collect(Collectors.toList());
     }
 }

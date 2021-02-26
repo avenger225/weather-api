@@ -1,6 +1,6 @@
 package com.project.weather.webclient;
 
-import com.project.weather.webclient.dto.ForecastDto;
+import com.project.weather.webclient.dto.Forecast;
 import com.project.weather.configuration.WeatherApiConfiguration;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -12,9 +12,9 @@ public class WeatherClient {
     private final RestTemplate restTemplate = new RestTemplate();
     private final WeatherApiConfiguration weatherApiConfiguration;
 
-    public ForecastDto getWeatherForCity(String city) {
+    public Forecast getWeatherForCity(String city) {
         return callGetMethod(weatherApiConfiguration.getWeatherApiForecastCity(),
-                ForecastDto.class,
+                Forecast.class,
                 city, weatherApiConfiguration.getWeatherApiKey());
     }
 

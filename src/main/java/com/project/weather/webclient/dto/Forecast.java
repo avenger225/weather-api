@@ -11,15 +11,15 @@ import java.util.List;
 @Component
 @Getter
 @NoArgsConstructor
-public class ForecastDto {
+public class Forecast {
     private String cityName;
     private double longitude;
     private double latitude;
-    private List<WeatherDto> weatherList;
+    private List<Weather> weatherList;
 
     @JsonCreator
-    public ForecastDto(@JsonProperty("city_name") String cityName, @JsonProperty("lon") double longitude,
-                       @JsonProperty("lat") double latitude, @JsonProperty("data") List<WeatherDto> weatherList) {
+    public Forecast(@JsonProperty("city_name") String cityName, @JsonProperty("lon") double longitude,
+                    @JsonProperty("lat") double latitude, @JsonProperty("data") List<Weather> weatherList) {
         this.cityName = cityName;
         this.longitude = longitude;
         this.latitude = latitude;

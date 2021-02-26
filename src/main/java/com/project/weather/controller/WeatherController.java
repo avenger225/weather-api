@@ -2,7 +2,7 @@ package com.project.weather.controller;
 
 import com.project.weather.model.SurfingLocation;
 import com.project.weather.service.WeatherService;
-import com.project.weather.webclient.dto.ForecastDto;
+import com.project.weather.webclient.dto.Forecast;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,12 +16,12 @@ public class WeatherController {
     private final WeatherService weatherService;
 
     @GetMapping("/weather/{city}")
-    public ForecastDto getWeather(@PathVariable String city) {
+    public Forecast getWeather(@PathVariable String city) {
         return weatherService.getWeather(city);
     }
 
     @GetMapping("/weather/surfing")
-    public List<ForecastDto> getSurfingWeather() {
+    public List<Forecast> getSurfingWeather() {
         return weatherService.getSurfingWeather();
     }
 
