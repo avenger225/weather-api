@@ -6,6 +6,7 @@ import com.project.weather.webclient.WeatherClient;
 import com.project.weather.webclient.dto.Forecast;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,6 +28,7 @@ public class WeatherService {
         return surfingLocationRepository.findAll();
     }
 
+    @Cacheable(value = "SurfingLocationForecast")
     public List<Forecast> getSurfingWeather() {
         return getSurfingLocations().stream().map(surfingLocation -> getWeather(surfingLocation.getCity())).collect(Collectors.toList());
     }
