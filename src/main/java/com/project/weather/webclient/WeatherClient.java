@@ -1,7 +1,7 @@
 package com.project.weather.webclient;
 
 import com.project.weather.webclient.dto.Forecast;
-import com.project.weather.configuration.WeatherApiConfiguration;
+import com.project.weather.configuration.weather.WeatherApiConfiguration;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;

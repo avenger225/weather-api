@@ -1,4 +1,4 @@
-package com.project.weather.configuration;
+package com.project.weather.configuration.weather;
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;

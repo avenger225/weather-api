@@ -2,9 +2,7 @@ package com.project.weather.webclient.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
 
-@Component
 @Getter
 @NoArgsConstructor
 public class DailyWeather {
