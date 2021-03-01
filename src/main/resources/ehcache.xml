@@ -13,5 +13,6 @@
 </cache-template>
 
 <cache alias="SurfingLocationForecast" uses-template="default"/>
+<cache alias="DailyWeatherMap" uses-template="default"/>
 
 </config>
