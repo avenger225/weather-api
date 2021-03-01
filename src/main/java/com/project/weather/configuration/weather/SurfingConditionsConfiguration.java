@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SurfingConditionsConfiguration {
+
     @Value("${surfing.conditions.temp.min}")
     private double tempMin;
 
