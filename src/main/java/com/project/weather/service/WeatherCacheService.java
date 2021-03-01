@@ -44,13 +44,13 @@ public class WeatherCacheService {
             for (Weather weather: forecast.getWeatherList()) {
                 if (surfingConditionsConfiguration.weatherSuitableForSurfing(weather.getWindSpeed(), weather.getTemperature())) {
                     if (dateDailyWeatherMap.containsKey(weather.getDate())) {
-                        dateDailyWeatherMap.
-                                get(weather.getDate()).
-                                add(new DailyWeather(forecast.getCityName(), weather.getWindSpeed(), weather.getTemperature()));
+                        dateDailyWeatherMap
+                                .get(weather.getDate())
+                                .add(new DailyWeather(forecast.getCityName(), weather.getWindSpeed(), weather.getTemperature()));
                     } else {
-                        dateDailyWeatherMap.
-                                computeIfAbsent(weather.getDate(), w -> new ArrayList<>()).
-                                add(new DailyWeather(forecast.getCityName(), weather.getWindSpeed(), weather.getTemperature()));
+                        dateDailyWeatherMap
+                                .computeIfAbsent(weather.getDate(), w -> new ArrayList<>())
+                                .add(new DailyWeather(forecast.getCityName(), weather.getWindSpeed(), weather.getTemperature()));
                     }
                 }
             }
