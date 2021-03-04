@@ -1,5 +1,6 @@
 package com.project.weather.controller;
 
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.project.weather.model.SurfingLocation;
 import com.project.weather.service.WeatherCacheService;
 import com.project.weather.service.WeatherService;
@@ -52,13 +53,18 @@ public class WeatherController {
     @ControllerAdvice
     public class ExceptionHelper {
         @ExceptionHandler(value = {HttpClientErrorException.class})
-        public ResponseEntity<Object> handleInvalidInputException(HttpClientErrorException ex) {
-            return new ResponseEntity<>(ex.getMessage() + ex.getStatusText(), HttpStatus.BAD_REQUEST);
+        public ResponseEntity<Object> handleHttpClientErrorException(HttpClientErrorException exception) {
+            return new ResponseEntity<>(exception.getMessage() + exception.getStatusText(), HttpStatus.BAD_REQUEST);
         }
 
         @ExceptionHandler(value = {HttpServerErrorException.class})
-        public ResponseEntity<Object> handleUnauthorizedException(HttpServerErrorException ex) {
-            return new ResponseEntity<>(ex.getMessage() + ex.getStatusText(), HttpStatus.INTERNAL_SERVER_ERROR);
+        public ResponseEntity<Object> handleHttpServerErrorException(HttpServerErrorException exception) {
+            return new ResponseEntity<>(exception.getMessage() + exception.getStatusText(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        @ExceptionHandler(value = {JWTVerificationException.class})
+        public ResponseEntity<Object> handleJWTVerificationException(JWTVerificationException exception) {
+            return new ResponseEntity<>("TOKEN ERROR: " + exception.getMessage(), HttpStatus.UNAUTHORIZED);
         }
     }
 }
