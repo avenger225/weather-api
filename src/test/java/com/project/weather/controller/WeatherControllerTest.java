@@ -22,6 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @WithMockUser
 public class WeatherControllerTest {
+
     @Autowired
     private MockMvc mockMvc;
 
@@ -38,5 +39,16 @@ public class WeatherControllerTest {
 
         List<Forecast> forecastList = Arrays.asList(objectMapper.readValue(result.getResponse().getContentAsString(), Forecast[].class));
         assertThat(forecastList).isNotNull();
+    }
+
+    @Test
+    public void getForecastForGivenCity() throws Exception {
+        MvcResult result = mockMvc.perform(get("/weather/{city}", "Szczecin"))
+                .andDo(print())
+                .andExpect(status().is(200))
+                .andReturn();
+
+        Forecast forecastList = objectMapper.readValue(result.getResponse().getContentAsString(), Forecast.class);
+        assertThat(forecastList.getCityName()).isEqualTo("Szczecin");
     }
 }
