@@ -23,12 +23,12 @@ public class CustomRequestLoggingFilter extends GenericFilterBean {
         final HttpServletResponse currentResponse = (HttpServletResponse) servletResponse;
 
         StringBuffer requestURL = currentRequest.getRequestURL();
-        log.info("Request URL: {}", requestURL);
+        logger.info("Request URL: {}" + requestURL);
         try {
             chain.doFilter(currentRequest, servletResponse);
         } finally {
             int status = currentResponse.getStatus();
-            log.info("Response status: {}", status);
+            logger.info("Response status: {}" + status);
         }
     }
 }
