@@ -24,7 +24,7 @@ public class WeatherService {
     private final WeatherClient weatherClient;
 
     public List<SurfingLocation> getSurfingLocations() {
-        return surfingLocationRepository.findAll();
+        return surfingLocationRepository.findAll().stream().collect(Collectors.toUnmodifiableList());
     }
 
     public List<Forecast> getSurfingWeather() {

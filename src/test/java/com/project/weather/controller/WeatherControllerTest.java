@@ -13,6 +13,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -21,6 +22,7 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -34,9 +36,8 @@ public class WeatherControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-
     @Test
-    public void getSurfingLocations() throws Exception {
+    public void shouldGetSurfingLocations() throws Exception {
         MvcResult result = mockMvc.perform(get("/weather/surfing"))
                 .andDo(print())
                 .andExpect(status().is(200))
@@ -47,7 +48,7 @@ public class WeatherControllerTest {
     }
 
     @Test
-    public void getForecastForGivenCity() throws Exception {
+    public void shouldGetForecastForGivenCity() throws Exception {
         MvcResult result = mockMvc.perform(get("/weather/{city}", "Szczecin"))
                 .andDo(print())
                 .andExpect(status().is(200))
@@ -58,7 +59,7 @@ public class WeatherControllerTest {
     }
 
     @Test
-    public void getForecastForEmbeddedCities() throws Exception {
+    public void shouldGetForecastForEmbeddedCities() throws Exception {
         MvcResult result = mockMvc.perform(get("/weather/map"))
                 .andDo(print())
                 .andExpect(status().is(200))
@@ -69,5 +70,20 @@ public class WeatherControllerTest {
         };
         Map<LocalDate, List<DailyWeather>> map = objectMapper.readValue(result.getResponse().getContentAsString(), typeRef);
         assertThat(map).isNotEmpty();
+    }
+
+    @Test
+    public void shouldGetForecastForTomorrow() throws Exception {
+        mockMvc.perform(get("/best-surfing-location/{date}", LocalDate.now().plusDays(1).format(DateTimeFormatter.ISO_DATE)))
+                .andDo(print())
+                .andExpect(status().is(200));
+    }
+
+    @Test
+    public void shouldGetEmptyForecastForYesterday() throws Exception {
+        mockMvc.perform(get("/best-surfing-location/{date}", LocalDate.now().minusDays(1).format(DateTimeFormatter.ISO_DATE)))
+                .andDo(print())
+                .andExpect(status().is(200))
+                .andExpect(content().string(""));
     }
 }
