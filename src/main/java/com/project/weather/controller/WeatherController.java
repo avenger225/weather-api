@@ -1,8 +1,6 @@
 package com.project.weather.controller;
 
-import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.project.weather.configuration.handler.ApiError;
-import com.project.weather.model.SurfingLocation;
 import com.project.weather.service.WeatherCacheService;
 import com.project.weather.service.WeatherService;
 import com.project.weather.webclient.dto.DailyWeather;
@@ -26,22 +24,17 @@ public class WeatherController {
 
     @GetMapping("/weather/{city}")
     public ResponseEntity<Forecast> getWeather(@PathVariable String city) {
-        return new ResponseEntity<>(weatherCacheService.getWeather(city), HttpStatus.OK);
+        return new ResponseEntity<>(weatherService.getWeather(city), HttpStatus.OK);
     }
 
     @GetMapping("/weather/surfing")
     public ResponseEntity<List<Forecast>> getSurfingWeather() {
-        return new ResponseEntity<>(weatherCacheService.getSurfingWeather(), HttpStatus.OK);
+        return new ResponseEntity<>(weatherService.getSurfingWeather(), HttpStatus.OK);
     }
 
     @GetMapping("/weather/map")
     public ResponseEntity<Map<LocalDate, List<DailyWeather>>> getDailyWeatherMap() {
-        return new ResponseEntity<>(weatherCacheService.getDailyWeatherMap(), HttpStatus.OK);
-    }
-
-    @GetMapping("/surfing-locations")
-    public ResponseEntity<List<SurfingLocation>> getSurfingLocations() {
-        return new ResponseEntity<>(weatherCacheService.getSurfingLocations(), HttpStatus.OK);
+        return new ResponseEntity<>(weatherCacheService.getDailyWeatherMap(weatherService.getSurfingWeather()), HttpStatus.OK);
     }
 
     @GetMapping("/best-surfing-location/{date}")
