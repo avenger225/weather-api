@@ -1,10 +1,8 @@
-package com.project.weather.configuration;
+package com.project.weather.configuration.handler;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.ResponseErrorHandler;
 
 import java.io.BufferedReader;
@@ -29,9 +27,9 @@ public class RestTemplateResponseErrorHandler implements ResponseErrorHandler {
     public void handleError(ClientHttpResponse httpResponse) throws IOException {
         switch (httpResponse.getStatusCode().series()) {
             case SERVER_ERROR:
-                throw new HttpServerErrorException("Server side error while connecting to Weather API Server: " + responseBodyToString(httpResponse.getBody()), HttpStatus.INTERNAL_SERVER_ERROR, httpResponse.getStatusText(), null, null, null);
+                throw new ApiError(HttpStatus.INTERNAL_SERVER_ERROR, "Server side error while connecting to Weather API Server: " , responseBodyToString(httpResponse.getBody()));
             case CLIENT_ERROR:
-                throw new HttpClientErrorException("Client side error while connecting to Weather API Server: " + responseBodyToString(httpResponse.getBody()), HttpStatus.BAD_REQUEST, httpResponse.getStatusText(), null, null, null);
+                throw new ApiError(HttpStatus.BAD_REQUEST, "Client side error while connecting to Weather API Server: ", responseBodyToString(httpResponse.getBody()));
         }
     }
 

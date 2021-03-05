@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Date;
 
 import static com.project.weather.configuration.authorization.AuthorizationConfig.TOKEN_HEADER;
@@ -23,12 +24,13 @@ public class AuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccess
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
-                                        Authentication authentication) {
+                                        Authentication authentication) throws IOException {
         UserDetails principal = (UserDetails) authentication.getPrincipal();
         String token = JWT.create()
                 .withSubject(principal.getUsername())
                 .withExpiresAt(new Date(System.currentTimeMillis() + authorizationConfig.getExpirationTime()))
                 .sign(Algorithm.HMAC256(authorizationConfig.getSecret()));
-        response.addHeader(TOKEN_HEADER, TOKEN_PREFIX + token);
+        response.setContentType("application/json");
+        response.getOutputStream().println("{ \"" + TOKEN_HEADER + "\": \"" + TOKEN_PREFIX + token + "\" }");
     }
 }

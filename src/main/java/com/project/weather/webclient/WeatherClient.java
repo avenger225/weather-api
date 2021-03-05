@@ -1,6 +1,6 @@
 package com.project.weather.webclient;
 
-import com.project.weather.configuration.RestTemplateResponseErrorHandler;
+import com.project.weather.configuration.handler.RestTemplateResponseErrorHandler;
 import com.project.weather.configuration.weather.WeatherApiConfiguration;
 import com.project.weather.webclient.dto.Forecast;
 import org.springframework.beans.factory.annotation.Autowired;

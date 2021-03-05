@@ -1,6 +1,7 @@
 package com.project.weather.controller;
 
 import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.project.weather.configuration.handler.ApiError;
 import com.project.weather.model.SurfingLocation;
 import com.project.weather.service.WeatherCacheService;
 import com.project.weather.service.WeatherService;
@@ -11,8 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.HttpServerErrorException;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -52,19 +51,9 @@ public class WeatherController {
 
     @ControllerAdvice
     public class ExceptionHelper {
-        @ExceptionHandler(value = {HttpClientErrorException.class})
-        public ResponseEntity<Object> handleHttpClientErrorException(HttpClientErrorException exception) {
-            return new ResponseEntity<>(exception.getMessage() + exception.getStatusText(), HttpStatus.BAD_REQUEST);
-        }
-
-        @ExceptionHandler(value = {HttpServerErrorException.class})
-        public ResponseEntity<Object> handleHttpServerErrorException(HttpServerErrorException exception) {
-            return new ResponseEntity<>(exception.getMessage() + exception.getStatusText(), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-
-        @ExceptionHandler(value = {JWTVerificationException.class})
-        public ResponseEntity<Object> handleJWTVerificationException(JWTVerificationException exception) {
-            return new ResponseEntity<>("TOKEN ERROR: " + exception.getMessage(), HttpStatus.UNAUTHORIZED);
+        @ExceptionHandler(value = {ApiError.class})
+        public ResponseEntity<Object> handleHttpClientErrorException(ApiError exception) {
+            return new ResponseEntity<>(exception.getMessage() + exception.getErrorStack(), exception.getStatus());
         }
     }
 }
