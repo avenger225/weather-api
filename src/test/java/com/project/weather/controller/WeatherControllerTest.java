@@ -74,14 +74,14 @@ public class WeatherControllerTest {
 
     @Test
     public void shouldGetForecastForTomorrow() throws Exception {
-        mockMvc.perform(get("/best-surfing-location/{date}", LocalDate.now().plusDays(1).format(DateTimeFormatter.ISO_DATE)))
+        mockMvc.perform(get("/weather/best-surfing-location/{date}", LocalDate.now().plusDays(1).format(DateTimeFormatter.ISO_DATE)))
                 .andDo(print())
                 .andExpect(status().is(200));
     }
 
     @Test
     public void shouldGetEmptyForecastForYesterday() throws Exception {
-        mockMvc.perform(get("/best-surfing-location/{date}", LocalDate.now().minusDays(1).format(DateTimeFormatter.ISO_DATE)))
+        mockMvc.perform(get("/weather/best-surfing-location/{date}", LocalDate.now().minusDays(1).format(DateTimeFormatter.ISO_DATE)))
                 .andDo(print())
                 .andExpect(status().is(200))
                 .andExpect(content().string(""));

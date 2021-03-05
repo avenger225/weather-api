@@ -5,13 +5,11 @@
             http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core-3.0.xsd
             http://www.ehcache.org/v3/jsr107 http://www.ehcache.org/schema/ehcache-107-ext-3.0.xsd">
 
-<cache-template name="default">
+
+<cache alias="DailyWeatherMap">
     <expiry>
         <ttl unit="hours">5</ttl>
     </expiry>
-    <heap unit="entries">200</heap>
-</cache-template>
-
-<cache alias="DailyWeatherMap" uses-template="default"/>
-
+    <heap unit="entries">500</heap>
+</cache>
 </config>

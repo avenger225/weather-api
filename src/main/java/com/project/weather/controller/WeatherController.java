@@ -20,7 +20,6 @@ import java.util.Map;
 @AllArgsConstructor
 public class WeatherController {
     private final WeatherService weatherService;
-    private final WeatherCacheService weatherCacheService;
 
     @GetMapping("/weather/{city}")
     public ResponseEntity<Forecast> getWeather(@PathVariable String city) {
@@ -34,10 +33,10 @@ public class WeatherController {
 
     @GetMapping("/weather/map")
     public ResponseEntity<Map<LocalDate, List<DailyWeather>>> getDailyWeatherMap() {
-        return new ResponseEntity<>(weatherCacheService.getDailyWeatherMap(weatherService.getSurfingWeather()), HttpStatus.OK);
+        return new ResponseEntity<>(weatherService.getDailyWeather(), HttpStatus.OK);
     }
 
-    @GetMapping("/best-surfing-location/{date}")
+    @GetMapping("/weather/best-surfing-location/{date}")
     public ResponseEntity<String> getBestSurfingLocationForDate(@PathVariable String date){
         return new ResponseEntity<>(weatherService.getBestSurfingLocationForDate(LocalDate.parse(date)), HttpStatus.OK);
     }

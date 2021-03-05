@@ -19,7 +19,8 @@ Used technologies:
 - Intellij IDEA
     
   
-##Installation and running the aplication
+##Installation and running the application
+
 
 ###With usage of Intellij IDEA
 
@@ -41,3 +42,46 @@ cd target
 java -jar weather-0.0.1.jar
 ```
 
+  
+##Usage of project with Swagger UI
+
+1. Open link http://localhost:8080/swagger-ui.html
+
+Correct authorization with JWT token is required.
+
+More info about JTW: https://jwt.io/introduction
+
+First step is to use POST method login in LoginController with predefined user data in request body:
+``` 
+{
+  "login": "test",
+  "password": "test"
+} 
+```
+
+In the response we get:
+``` 
+{
+  "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiZXhwIjoxNjE0OTc2ODEwfQ.CARSk0S8NW5CIW_KkCHA4S_j1gLyldKVAXshoCb918E"
+}
+```
+
+To be able to use all methods now we need to paste the value in quotation marks (Bearer XYZ) for key "Authorization" from that response body to Swagger's authorizations pop'up (green button "Authorize" with lock icon).
+
+If the authorization is successful, we can verify that fact by using the method http://localhost:8080/login/test.
+
+In response, we should see response body with a word 'test';
+
+##Usage of project with Swagger UI
+
+Methods from Weather Controller with usage of the Weatherbit Forecast API as the source of weather forecast:
+
+- /weather/best-surfing-location/{date}
+    Getting surfing location with the best surfer coefficient's value for given date. 
+    If the date is within 16 days of today - method should return a city name.
+
+- /weather/{city}
+    Getting basic weather's forecast data for given city.
+    
+- /weather/{city}
+    Getting basic weather's forecast data for given city.
