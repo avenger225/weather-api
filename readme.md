@@ -2,7 +2,7 @@
 
 Project created with usage of Spring Boot framework (Java 11) - REST API available for surfing conditions diagnostics
 
-##Tech
+## Tech
 
 Used technologies:
 
@@ -19,17 +19,17 @@ Used technologies:
 - Intellij IDEA
     
   
-##Installation and running the application
+## Installation and running the application
 
 
-###With usage of Intellij IDEA
+### With usage of Intellij IDEA
 
 - Import project from repository
 - Use Maven to build project: ```install -f pom.xml```
 - Run project with: ```spring-boot:run -f pom.xml```
 
 
-###Usage with Command Line
+### Usage with Command Line
 
 Attention: JAVA_HOME as system variable required
 
@@ -43,7 +43,7 @@ java -jar weather-0.0.1.jar
 ```
 
   
-##Usage of project with Swagger UI
+## Usage of project with Swagger UI
 
 1. Open link http://localhost:8080/swagger-ui.html
 
