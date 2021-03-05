@@ -50,7 +50,7 @@ public class WeatherController {
     }
 
     @ControllerAdvice
-    public class ExceptionHelper {
+    class ExceptionHelper {
         @ExceptionHandler(value = {ApiError.class})
         public ResponseEntity<Object> handleHttpClientErrorException(ApiError exception) {
             return new ResponseEntity<>(exception.getMessage() + exception.getErrorStack(), exception.getStatus());

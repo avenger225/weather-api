@@ -8,6 +8,6 @@ public class SurfingDailyWeatherComparator implements Comparator<DailyWeather> {
 
     @Override
     public int compare(DailyWeather dailyWeather1, DailyWeather dailyWeather2) {
-        return Double.compare(dailyWeather1.getTemperature(), dailyWeather2.getTemperature());
+        return Double.compare(dailyWeather1.getSurferCoefficient(), dailyWeather2.getSurferCoefficient());
     }
 }
