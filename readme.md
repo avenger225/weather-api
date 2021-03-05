@@ -77,11 +77,19 @@ In response, we should see response body with a word 'test';
 Methods from Weather Controller with usage of the Weatherbit Forecast API as the source of weather forecast:
 
 - /weather/best-surfing-location/{date}
+    
     Getting surfing location with the best surfer coefficient's value for given date. 
     If the date is within 16 days of today - method should return a city name.
 
 - /weather/{city}
+    
     Getting basic weather's forecast data for given city.
     
-- /weather/{city}
-    Getting basic weather's forecast data for given city.
+- /weather/map
+    
+    Getting forecast data (including surferCoefficient parameter) map for next 16 days for cities embedded in H2 database.
+    
+ - /weather/surfing
+    
+    Getting full weather's forecast list for cities embedded in H2 database.
+   
