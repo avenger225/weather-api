@@ -1,4 +1,4 @@
-package com.project.weather.webclient.dto;
+package com.project.weather.webclient.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

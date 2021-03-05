@@ -2,8 +2,8 @@ package com.project.weather.controller;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.project.weather.webclient.dto.DailyWeather;
-import com.project.weather.webclient.dto.Forecast;
+import com.project.weather.webclient.model.DailyWeather;
+import com.project.weather.webclient.model.Forecast;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;

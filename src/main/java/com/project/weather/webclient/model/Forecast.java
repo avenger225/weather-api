@@ -1,4 +1,4 @@
-package com.project.weather.webclient.dto;
+package com.project.weather.webclient.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

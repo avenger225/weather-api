@@ -1,9 +1,9 @@
 package com.project.weather.service;
 
 import com.project.weather.configuration.weather.SurfingConditionsConfiguration;
-import com.project.weather.webclient.dto.DailyWeather;
-import com.project.weather.webclient.dto.Forecast;
-import com.project.weather.webclient.dto.Weather;
+import com.project.weather.webclient.model.DailyWeather;
+import com.project.weather.webclient.model.Forecast;
+import com.project.weather.webclient.model.Weather;
 import lombok.AllArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;

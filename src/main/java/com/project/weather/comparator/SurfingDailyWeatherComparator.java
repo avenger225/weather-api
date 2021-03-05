@@ -1,6 +1,6 @@
 package com.project.weather.comparator;
 
-import com.project.weather.webclient.dto.DailyWeather;
+import com.project.weather.webclient.model.DailyWeather;
 
 import java.util.Comparator;
 
