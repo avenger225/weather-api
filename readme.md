@@ -72,7 +72,7 @@ If the authorization is successful, we can verify that fact by using the method 
 
 In response, we should see response body with a word 'test';
 
-##Usage of project with Swagger UI
+## Usage of project with Swagger UI
 
 Methods from Weather Controller with usage of the Weatherbit Forecast API as the source of weather forecast:
 
