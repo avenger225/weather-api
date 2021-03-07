@@ -1,12 +1,10 @@
 package com.project.weather.controller;
 
 import com.project.weather.configuration.handler.ApiError;
-import com.project.weather.service.WeatherCacheService;
 import com.project.weather.service.WeatherService;
 import com.project.weather.webclient.model.DailyWeather;
 import com.project.weather.webclient.model.Forecast;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,27 +14,27 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@Slf4j
+@RequestMapping("weather")
 @AllArgsConstructor
 public class WeatherController {
     private final WeatherService weatherService;
 
-    @GetMapping("/weather/{city}")
+    @GetMapping("/{city}")
     public ResponseEntity<Forecast> getWeather(@PathVariable String city) {
         return new ResponseEntity<>(weatherService.getWeather(city), HttpStatus.OK);
     }
 
-    @GetMapping("/weather/surfing")
+    @GetMapping("/surfing")
     public ResponseEntity<List<Forecast>> getSurfingWeather() {
         return new ResponseEntity<>(weatherService.getSurfingWeather(), HttpStatus.OK);
     }
 
-    @GetMapping("/weather/map")
+    @GetMapping("/map")
     public ResponseEntity<Map<LocalDate, List<DailyWeather>>> getDailyWeatherMap() {
         return new ResponseEntity<>(weatherService.getDailyWeather(), HttpStatus.OK);
     }
 
-    @GetMapping("/weather/best-surfing-location/{date}")
+    @GetMapping("/best-surfing-location/{date}")
     public ResponseEntity<String> getBestSurfingLocationForDate(@PathVariable String date){
         return new ResponseEntity<>(weatherService.getBestSurfingLocationForDate(LocalDate.parse(date)), HttpStatus.OK);
     }
