@@ -3,7 +3,6 @@ package com.project.weather.webclient;
 import com.project.weather.configuration.handler.RestTemplateResponseErrorHandler;
 import com.project.weather.configuration.weather.WeatherApiConfiguration;
 import com.project.weather.webclient.model.Forecast;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -11,15 +10,13 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class WeatherClient {
     private final RestTemplate restTemplate;
+    private final WeatherApiConfiguration weatherApiConfiguration;
 
-    @Autowired
-    private WeatherApiConfiguration weatherApiConfiguration;
-
-    @Autowired
-    public WeatherClient(RestTemplateBuilder restTemplateBuilder) {
+    public WeatherClient(RestTemplateBuilder restTemplateBuilder, WeatherApiConfiguration weatherApiConfiguration) {
         this.restTemplate = restTemplateBuilder
                 .errorHandler(new RestTemplateResponseErrorHandler())
                 .build();
+        this.weatherApiConfiguration = weatherApiConfiguration;
     }
 
     public Forecast getWeatherForCity(String city) {
