@@ -1,4 +1,4 @@
-package com.project.weather.configuration.authorization;
+package com.project.security.configuration;
 
 import lombok.Getter;
 

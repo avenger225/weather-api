@@ -1,6 +1,6 @@
-package com.project.weather.controller;
+package com.project.security.controller;
 
-import com.project.weather.configuration.authorization.LoginCredentials;
+import com.project.security.configuration.LoginCredentials;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

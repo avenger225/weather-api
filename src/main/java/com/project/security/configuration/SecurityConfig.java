@@ -1,8 +1,9 @@
-package com.project.weather.configuration.authorization;
+package com.project.security.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.project.weather.configuration.handler.CustomAccessDeniedHandler;
-import com.project.weather.configuration.handler.CustomAuthenticationEntryPoint;
+import com.project.security.handler.AuthenticationFailureHandler;
+import com.project.security.handler.AuthenticationSuccessHandler;
+import com.project.security.handler.CustomAccessDeniedHandler;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

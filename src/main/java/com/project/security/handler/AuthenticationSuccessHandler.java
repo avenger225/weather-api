@@ -1,7 +1,8 @@
-package com.project.weather.configuration.authorization;
+package com.project.security.handler;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.project.security.configuration.AuthorizationConfig;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Date;
 
-import static com.project.weather.configuration.authorization.AuthorizationConfig.TOKEN_HEADER;
-import static com.project.weather.configuration.authorization.AuthorizationConfig.TOKEN_PREFIX;
+import static com.project.security.configuration.AuthorizationConfig.TOKEN_HEADER;
+import static com.project.security.configuration.AuthorizationConfig.TOKEN_PREFIX;
 
 @Component
 @AllArgsConstructor

@@ -1,4 +1,4 @@
-package com.project.weather.configuration;
+package com.project.application.configuration;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package com.project.weather.controller;
+package com.project.login.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

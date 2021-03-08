@@ -1,6 +1,6 @@
 package com.project.weather.service;
 
-import com.project.weather.configuration.weather.SurfingConditionsConfiguration;
+import com.project.weather.configuration.SurfingConditionsConfiguration;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

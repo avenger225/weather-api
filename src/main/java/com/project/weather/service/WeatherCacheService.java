@@ -1,6 +1,5 @@
 package com.project.weather.service;
 
-import com.project.weather.configuration.weather.SurfingConditionsConfiguration;
 import com.project.weather.model.SurfingLocation;
 import com.project.weather.repository.SurfingLocationRepository;
 import com.project.weather.webclient.WeatherClient;

@@ -1,4 +1,4 @@
-package com.project.weather.configuration.handler;
+package com.project.security.handler;
 
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;

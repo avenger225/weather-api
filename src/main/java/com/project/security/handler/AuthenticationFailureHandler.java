@@ -1,4 +1,4 @@
-package com.project.weather.configuration.authorization;
+package com.project.security.handler;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;

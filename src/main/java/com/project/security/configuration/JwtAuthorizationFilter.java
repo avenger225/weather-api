@@ -1,4 +1,4 @@
-package com.project.weather.configuration.authorization;
+package com.project.security.configuration;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Optional;
 
-import static com.project.weather.configuration.authorization.AuthorizationConfig.TOKEN_HEADER;
-import static com.project.weather.configuration.authorization.AuthorizationConfig.TOKEN_PREFIX;
+import static com.project.security.configuration.AuthorizationConfig.TOKEN_HEADER;
+import static com.project.security.configuration.AuthorizationConfig.TOKEN_PREFIX;
 import static java.util.Objects.nonNull;
 
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
