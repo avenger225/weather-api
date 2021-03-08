@@ -14,10 +14,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Optional;
 
 import static com.project.weather.configuration.authorization.AuthorizationConfig.TOKEN_HEADER;
 import static com.project.weather.configuration.authorization.AuthorizationConfig.TOKEN_PREFIX;
-import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
@@ -35,17 +35,16 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                     FilterChain filterChain) throws IOException, ServletException {
-        UsernamePasswordAuthenticationToken authentication = getAuthentication(request);
-        if (isNull(authentication)) {
+        final Optional<UsernamePasswordAuthenticationToken> authentication = getAuthentication(request);
+        if (authentication.isEmpty()) {
             filterChain.doFilter(request, response);
             return;
         }
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+        SecurityContextHolder.getContext().setAuthentication(authentication.get());
         filterChain.doFilter(request, response);
     }
 
-    private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
-        UsernamePasswordAuthenticationToken authorizationToken = null;
+    private Optional<UsernamePasswordAuthenticationToken> getAuthentication(HttpServletRequest request) {
         String token = request.getHeader(TOKEN_HEADER);
         if (nonNull(token) && token.startsWith(TOKEN_PREFIX)) {
             String userName = JWT.require(Algorithm.HMAC256(secret))
@@ -54,9 +53,9 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
                     .getSubject();
             if (nonNull(userName)) {
                 UserDetails userDetails = userDetailsService.loadUserByUsername(userName);
-                authorizationToken = new UsernamePasswordAuthenticationToken(userDetails.getUsername(), null, userDetails.getAuthorities());
+                return Optional.of(new UsernamePasswordAuthenticationToken(userDetails.getUsername(), null, userDetails.getAuthorities()));
             }
         }
-        return authorizationToken;
+        return Optional.empty();
     }
 }
