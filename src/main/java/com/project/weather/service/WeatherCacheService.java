@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class WeatherCacheService {
 
-    private final SurfingConditionsConfiguration surfingConditionsConfiguration;
+    private final SurfingService surfingService;
     private final SurfingLocationRepository surfingLocationRepository;
     private final WeatherClient weatherClient;
 
@@ -43,7 +43,7 @@ public class WeatherCacheService {
         final Map<LocalDate, List<DailyWeather>> dateDailyWeatherMap = new HashMap<>();
         for (Forecast forecast: getSurfingWeather()) {
             for (Weather weather: forecast.getWeatherList()) {
-                if (surfingConditionsConfiguration.weatherSuitableForSurfing(weather.getWindSpeed(), weather.getTemperature())) {
+                if (surfingService.weatherSuitableForSurfing(weather.getWindSpeed(), weather.getTemperature())) {
                     if (dateDailyWeatherMap.containsKey(weather.getDate())) {
                         dateDailyWeatherMap
                                 .get(weather.getDate())

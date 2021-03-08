@@ -1,9 +1,11 @@
 package com.project.weather.configuration.weather;
 
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@Getter
 public class SurfingConditionsConfiguration {
 
     private final double tempMin;
@@ -19,9 +21,5 @@ public class SurfingConditionsConfiguration {
         this.tempMax = tempMax;
         this.windSpeedMin = windSpeedMin;
         this.windSpeedMax = windSpeedMax;
-    }
-
-    public boolean weatherSuitableForSurfing(final double windSpeed, final double temperature) {
-        return (windSpeed >= windSpeedMin && windSpeed <= windSpeedMax) && (temperature >= tempMin && temperature <= tempMax);
     }
 }
