@@ -8,12 +8,15 @@ import org.springframework.context.annotation.Configuration;
 @Getter
 public class WeatherApiConfiguration {
 
-    @Value("${weatherbit.api.url}")
-    private String weatherApiUrl;
+    private final String weatherApiUrl;
+    private final String weatherApiKey;
+    private final String weatherApiForecastCity;
 
-    @Value("${weatherbit.api.key}")
-    private String weatherApiKey;
-
-    @Value("${weatherbit.api.city}")
-    private String weatherApiForecastCity;
+    public WeatherApiConfiguration(@Value("${weatherbit.api.url}") String weatherApiUrl,
+                                   @Value("${weatherbit.api.key}") String weatherApiKey,
+                                   @Value("${weatherbit.api.city}") String weatherApiForecastCity) {
+        this.weatherApiUrl = weatherApiUrl;
+        this.weatherApiKey = weatherApiKey;
+        this.weatherApiForecastCity = weatherApiForecastCity;
+    }
 }
