@@ -45,6 +45,7 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
     }
 
     private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
+        UsernamePasswordAuthenticationToken authorizationToken = null;
         String token = request.getHeader(TOKEN_HEADER);
         if (nonNull(token) && token.startsWith(TOKEN_PREFIX)) {
             String userName = JWT.require(Algorithm.HMAC256(secret))
@@ -53,9 +54,9 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
                     .getSubject();
             if (nonNull(userName)) {
                 UserDetails userDetails = userDetailsService.loadUserByUsername(userName);
-                return new UsernamePasswordAuthenticationToken(userDetails.getUsername(), null, userDetails.getAuthorities());
+                authorizationToken = new UsernamePasswordAuthenticationToken(userDetails.getUsername(), null, userDetails.getAuthorities());
             }
         }
-        return null;
+        return authorizationToken;
     }
 }
