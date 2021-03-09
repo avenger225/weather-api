@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("login")
 public class LoginController {
 
-    @PostMapping("/")
+    @PostMapping("")
     public void login(@RequestBody LoginCredentials loginCredentials) {}
 
     @GetMapping("/test")
