@@ -19,11 +19,6 @@ public class SurfingService {
     private final SurfingLocationRepository surfingLocationRepository;
     private final WeatherClient weatherClient;
 
-    public boolean weatherSuitableForSurfing(final double windSpeed, final double temperature) {
-        return (windSpeed >= surfingConditionsConfiguration.getWindSpeedMin() && windSpeed <= surfingConditionsConfiguration.getWindSpeedMax())
-                && (temperature >= surfingConditionsConfiguration.getTempMin() && temperature <= surfingConditionsConfiguration.getTempMax());
-    }
-
     public List<SurfingLocation> getSurfingLocations() {
         return surfingLocationRepository.findAll().stream().collect(Collectors.toUnmodifiableList());
     }
@@ -32,4 +27,25 @@ public class SurfingService {
         return getSurfingLocations().stream().map(surfingLocation -> weatherClient.getWeatherForCity(surfingLocation.getCity()))
                 .collect(Collectors.toUnmodifiableList());
     }
+
+    public boolean weatherSuitableForSurfing(final double windSpeed, final double temperature) {
+        return (isWindNotTooWeak(windSpeed) && isWindNotTooStrong(windSpeed)) && (isTemperatureNotTooLow(temperature) && isTemperatureNotTooHigh(temperature));
+    }
+
+    protected boolean isWindNotTooWeak(double windSpeed) {
+        return windSpeed >= surfingConditionsConfiguration.getWindSpeedMin();
+    }
+
+    protected boolean isWindNotTooStrong(double windSpeed) {
+        return windSpeed <= surfingConditionsConfiguration.getWindSpeedMax();
+    }
+
+    protected boolean isTemperatureNotTooLow(double temperature) {
+        return temperature >= surfingConditionsConfiguration.getTempMin();
+    }
+
+    protected boolean isTemperatureNotTooHigh(double temperature) {
+        return temperature <= surfingConditionsConfiguration.getTempMax();
+    }
+
 }
