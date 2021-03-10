@@ -1,0 +1,87 @@
+{
+  "cityName": "Pissouri",
+  "longitude": 32.70132,
+  "latitude": 34.66942,
+  "weatherList": [
+    {
+      "windSpeed": 4.78108,
+      "date": "2021-03-10",
+      "temperature": 18.7
+    },
+    {
+      "windSpeed": 6.11616,
+      "date": "2021-03-11",
+      "temperature": 15.3
+    },
+    {
+      "windSpeed": 4.13877,
+      "date": "2021-03-12",
+      "temperature": 13.7
+    },
+    {
+      "windSpeed": 1.97024,
+      "date": "2021-03-13",
+      "temperature": 10.5
+    },
+    {
+      "windSpeed": 2.09684,
+      "date": "2021-03-14",
+      "temperature": 12.2
+    },
+    {
+      "windSpeed": 2.8909,
+      "date": "2021-03-15",
+      "temperature": 13.3
+    },
+    {
+      "windSpeed": 6.81451,
+      "date": "2021-03-16",
+      "temperature": 12.1
+    },
+    {
+      "windSpeed": 4.68068,
+      "date": "2021-03-17",
+      "temperature": 11.5
+    },
+    {
+      "windSpeed": 2.78365,
+      "date": "2021-03-18",
+      "temperature": 12.1
+    },
+    {
+      "windSpeed": 1.74948,
+      "date": "2021-03-19",
+      "temperature": 13.5
+    },
+    {
+      "windSpeed": 1.95409,
+      "date": "2021-03-20",
+      "temperature": 13.3
+    },
+    {
+      "windSpeed": 8.10539,
+      "date": "2021-03-21",
+      "temperature": 12
+    },
+    {
+      "windSpeed": 2.4379,
+      "date": "2021-03-22",
+      "temperature": 13.2
+    },
+    {
+      "windSpeed": 6.59081,
+      "date": "2021-03-23",
+      "temperature": 16.7
+    },
+    {
+      "windSpeed": 10.1845,
+      "date": "2021-03-24",
+      "temperature": 12
+    },
+    {
+      "windSpeed": 6.69737,
+      "date": "2021-03-25",
+      "temperature": 11.1
+    }
+  ]
+}
