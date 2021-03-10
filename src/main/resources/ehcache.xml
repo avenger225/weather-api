@@ -10,6 +10,6 @@
     <expiry>
         <ttl unit="hours">5</ttl>
     </expiry>
-    <heap unit="entries">500</heap>
+    <heap unit="entries">10000</heap>
 </cache>
 </config>

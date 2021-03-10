@@ -1,5 +1,6 @@
 package com.project.weather.service;
 
+import com.project.weather.webclient.WeatherClient;
 import com.project.weather.webclient.model.DailyWeather;
 import com.project.weather.webclient.model.Forecast;
 import lombok.AllArgsConstructor;
@@ -17,17 +18,14 @@ import java.util.Optional;
 public class WeatherService {
 
     private final WeatherCacheService weatherCacheService;
+    private final WeatherClient weatherClient;
 
-    public List<Forecast> getSurfingWeather() {
-        return weatherCacheService.getSurfingWeather();
+    public Forecast getWeather(final String city) {
+        return weatherClient.getWeatherForCity(city);
     }
 
     public Map<LocalDate, List<DailyWeather>> getDailyWeather() {
         return weatherCacheService.getDailyWeatherMap();
-    }
-
-    public Forecast getWeather(final String city) {
-        return weatherCacheService.getWeather(city);
     }
 
     public String getBestSurfingLocationForDate(final LocalDate date) {

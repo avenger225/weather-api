@@ -1,6 +1,7 @@
 package com.project.weather.controller;
 
 import com.project.weather.configuration.handler.ApiError;
+import com.project.weather.service.SurfingService;
 import com.project.weather.service.WeatherService;
 import com.project.weather.webclient.model.DailyWeather;
 import com.project.weather.webclient.model.Forecast;
@@ -18,6 +19,7 @@ import java.util.Map;
 @AllArgsConstructor
 public class WeatherController {
     private final WeatherService weatherService;
+    private final SurfingService surfingService;
 
     @GetMapping("/{city}")
     public ResponseEntity<Forecast> getWeather(@PathVariable String city) {
@@ -26,7 +28,7 @@ public class WeatherController {
 
     @GetMapping("/surfing")
     public ResponseEntity<List<Forecast>> getSurfingWeather() {
-        return new ResponseEntity<>(weatherService.getSurfingWeather(), HttpStatus.OK);
+        return new ResponseEntity<>(surfingService.getSurfingWeather(), HttpStatus.OK);
     }
 
     @GetMapping("/map")
