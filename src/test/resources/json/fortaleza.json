@@ -1,0 +1,87 @@
+{
+  "cityName": "Fortaleza",
+  "longitude": -38.54306,
+  "latitude": -3.71722,
+  "weatherList": [
+    {
+      "windSpeed": 5.17294,
+      "date": "2021-03-10",
+      "temperature": 28.4
+    },
+    {
+      "windSpeed": 5.6498,
+      "date": "2021-03-11",
+      "temperature": 28.4
+    },
+    {
+      "windSpeed": 5.52939,
+      "date": "2021-03-12",
+      "temperature": 28.3
+    },
+    {
+      "windSpeed": 4.77104,
+      "date": "2021-03-13",
+      "temperature": 28.2
+    },
+    {
+      "windSpeed": 4.70176,
+      "date": "2021-03-14",
+      "temperature": 28.1
+    },
+    {
+      "windSpeed": 4.36083,
+      "date": "2021-03-15",
+      "temperature": 27.9
+    },
+    {
+      "windSpeed": 4.52852,
+      "date": "2021-03-16",
+      "temperature": 27.9
+    },
+    {
+      "windSpeed": 3.94674,
+      "date": "2021-03-17",
+      "temperature": 27.7
+    },
+    {
+      "windSpeed": 3.97816,
+      "date": "2021-03-18",
+      "temperature": 27.8
+    },
+    {
+      "windSpeed": 3.90471,
+      "date": "2021-03-19",
+      "temperature": 28
+    },
+    {
+      "windSpeed": 3.72624,
+      "date": "2021-03-20",
+      "temperature": 27.7
+    },
+    {
+      "windSpeed": 4.2421,
+      "date": "2021-03-21",
+      "temperature": 28.1
+    },
+    {
+      "windSpeed": 3.18654,
+      "date": "2021-03-22",
+      "temperature": 27.6
+    },
+    {
+      "windSpeed": 3.34315,
+      "date": "2021-03-23",
+      "temperature": 27.8
+    },
+    {
+      "windSpeed": 2.55217,
+      "date": "2021-03-24",
+      "temperature": 28
+    },
+    {
+      "windSpeed": 3.39096,
+      "date": "2021-03-25",
+      "temperature": 27.7
+    }
+  ]
+}

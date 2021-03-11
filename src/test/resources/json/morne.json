@@ -1,0 +1,87 @@
+{
+  "cityName": "Le Gros-Morne",
+  "longitude": -61,
+  "latitude": 14.7,
+  "weatherList": [
+    {
+      "windSpeed": 6.693277,
+      "date": "2021-03-10",
+      "temperature": 24.3
+    },
+    {
+      "windSpeed": 5.714132,
+      "date": "2021-03-11",
+      "temperature": 24.1
+    },
+    {
+      "windSpeed": 4.239712,
+      "date": "2021-03-12",
+      "temperature": 24
+    },
+    {
+      "windSpeed": 4.5205398,
+      "date": "2021-03-13",
+      "temperature": 23
+    },
+    {
+      "windSpeed": 4.7354264,
+      "date": "2021-03-14",
+      "temperature": 22.7
+    },
+    {
+      "windSpeed": 5.2810645,
+      "date": "2021-03-15",
+      "temperature": 24.1
+    },
+    {
+      "windSpeed": 6.0686994,
+      "date": "2021-03-16",
+      "temperature": 24.2
+    },
+    {
+      "windSpeed": 5.909225,
+      "date": "2021-03-17",
+      "temperature": 24.1
+    },
+    {
+      "windSpeed": 7.198298,
+      "date": "2021-03-18",
+      "temperature": 24.2
+    },
+    {
+      "windSpeed": 6.617745,
+      "date": "2021-03-19",
+      "temperature": 24.1
+    },
+    {
+      "windSpeed": 6.0546575,
+      "date": "2021-03-20",
+      "temperature": 24.2
+    },
+    {
+      "windSpeed": 6.78865,
+      "date": "2021-03-21",
+      "temperature": 24.1
+    },
+    {
+      "windSpeed": 6.7499194,
+      "date": "2021-03-22",
+      "temperature": 24.3
+    },
+    {
+      "windSpeed": 5.8211384,
+      "date": "2021-03-23",
+      "temperature": 24
+    },
+    {
+      "windSpeed": 5.8425593,
+      "date": "2021-03-24",
+      "temperature": 24
+    },
+    {
+      "windSpeed": 7.141081,
+      "date": "2021-03-25",
+      "temperature": 24.3
+    }
+  ]
+}

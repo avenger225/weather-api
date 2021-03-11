@@ -1,0 +1,87 @@
+{
+  "cityName": "Bridgetown",
+  "longitude": -84.63717,
+  "latitude": 39.15311,
+  "weatherList": [
+    {
+      "windSpeed": 4.81176,
+      "date": "2021-03-10",
+      "temperature": 13.4
+    },
+    {
+      "windSpeed": 6.41344,
+      "date": "2021-03-11",
+      "temperature": 14.9
+    },
+    {
+      "windSpeed": 2.41131,
+      "date": "2021-03-12",
+      "temperature": 10.6
+    },
+    {
+      "windSpeed": 2.97958,
+      "date": "2021-03-13",
+      "temperature": 8
+    },
+    {
+      "windSpeed": 4.81249,
+      "date": "2021-03-14",
+      "temperature": 6.2
+    },
+    {
+      "windSpeed": 3.98854,
+      "date": "2021-03-15",
+      "temperature": 6.9
+    },
+    {
+      "windSpeed": 3.54354,
+      "date": "2021-03-16",
+      "temperature": 6.8
+    },
+    {
+      "windSpeed": 3.96347,
+      "date": "2021-03-17",
+      "temperature": 11.4
+    },
+    {
+      "windSpeed": 4.91472,
+      "date": "2021-03-18",
+      "temperature": 9
+    },
+    {
+      "windSpeed": 3.49996,
+      "date": "2021-03-19",
+      "temperature": 8.3
+    },
+    {
+      "windSpeed": 2.21933,
+      "date": "2021-03-20",
+      "temperature": 9.9
+    },
+    {
+      "windSpeed": 2.62334,
+      "date": "2021-03-21",
+      "temperature": 10.9
+    },
+    {
+      "windSpeed": 5.4143,
+      "date": "2021-03-22",
+      "temperature": 8.7
+    },
+    {
+      "windSpeed": 3.41456,
+      "date": "2021-03-23",
+      "temperature": 6.3
+    },
+    {
+      "windSpeed": 2.68344,
+      "date": "2021-03-24",
+      "temperature": 5.7
+    },
+    {
+      "windSpeed": 4.30697,
+      "date": "2021-03-25",
+      "temperature": 5.1
+    }
+  ]
+}

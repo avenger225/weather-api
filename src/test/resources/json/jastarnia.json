@@ -1,0 +1,87 @@
+{
+  "cityName": "Jastarnia",
+  "longitude": 18.67873,
+  "latitude": 54.69606,
+  "weatherList": [
+    {
+      "windSpeed": 2.64817,
+      "date": "2021-03-10",
+      "temperature": 2.2
+    },
+    {
+      "windSpeed": 12.2348,
+      "date": "2021-03-11",
+      "temperature": 0.9
+    },
+    {
+      "windSpeed": 7.65513,
+      "date": "2021-03-12",
+      "temperature": 4.7
+    },
+    {
+      "windSpeed": 6.30661,
+      "date": "2021-03-13",
+      "temperature": 4.7
+    },
+    {
+      "windSpeed": 6.6122,
+      "date": "2021-03-14",
+      "temperature": 5
+    },
+    {
+      "windSpeed": 4.33063,
+      "date": "2021-03-15",
+      "temperature": 3.1
+    },
+    {
+      "windSpeed": 3.42483,
+      "date": "2021-03-16",
+      "temperature": 1.7
+    },
+    {
+      "windSpeed": 5.02643,
+      "date": "2021-03-17",
+      "temperature": 0.4
+    },
+    {
+      "windSpeed": 4.94134,
+      "date": "2021-03-18",
+      "temperature": 0.4
+    },
+    {
+      "windSpeed": 3.86876,
+      "date": "2021-03-19",
+      "temperature": -0.1
+    },
+    {
+      "windSpeed": 2.84908,
+      "date": "2021-03-20",
+      "temperature": -0.6
+    },
+    {
+      "windSpeed": 5.22262,
+      "date": "2021-03-21",
+      "temperature": 3.2
+    },
+    {
+      "windSpeed": 3.65249,
+      "date": "2021-03-22",
+      "temperature": 2.7
+    },
+    {
+      "windSpeed": 3.44271,
+      "date": "2021-03-23",
+      "temperature": 4
+    },
+    {
+      "windSpeed": 1.66285,
+      "date": "2021-03-24",
+      "temperature": 4.6
+    },
+    {
+      "windSpeed": 1.51259,
+      "date": "2021-03-25",
+      "temperature": 5.4
+    }
+  ]
+}
