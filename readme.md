@@ -80,6 +80,8 @@ Methods from Weather Controller with usage of the Weatherbit Forecast API as the
     
     Getting surfing location with the best surfer coefficient's value for given date. 
     If the date is within 16 days of today - method should return a city name.
+    
+    Surfer Coefficient formula = (windSpeed * 3) + temperature
 
 - /weather/{city}
     

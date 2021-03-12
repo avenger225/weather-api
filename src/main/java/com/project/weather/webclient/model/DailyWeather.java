@@ -15,6 +15,6 @@ public class DailyWeather {
         this.city = city;
         this.windSpeed = windSpeed;
         this.temperature = temperature;
-        this.surferCoefficient = (windSpeed / 3) + temperature;
+        this.surferCoefficient = (windSpeed * 3) + temperature;
     }
 }
