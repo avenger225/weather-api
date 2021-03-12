@@ -28,13 +28,13 @@ public class WeatherService {
         return weatherCacheService.getDailyWeatherMap();
     }
 
-    public String getBestSurfingLocationForDate(final LocalDate date) {
+    public DailyWeather getBestSurfingLocationForDate(final LocalDate date) {
         final List<DailyWeather> dailyWeatherList = weatherCacheService.getDailyWeatherMap().get(date);
         if (CollectionUtils.isEmpty(dailyWeatherList)) {
             return null;
         }
         final Optional<DailyWeather> bestWeather = dailyWeatherList.stream().max(Comparator.comparing(DailyWeather::getSurferCoefficient));
-        return bestWeather.map(DailyWeather::getCity).orElse(null);
+        return bestWeather.orElse(null);
     }
 }
 

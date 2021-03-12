@@ -42,7 +42,7 @@ public class WeatherController {
 
     @ApiOperation(value = "Getting surfing location with the best surfer coefficient's value for given date.")
     @GetMapping("/best-surfing-location/{date}")
-    public ResponseEntity<String> getBestSurfingLocationForDate(@PathVariable String date){
+    public ResponseEntity<DailyWeather> getBestSurfingLocationForDate(@PathVariable String date){
         return new ResponseEntity<>(weatherService.getBestSurfingLocationForDate(LocalDate.parse(date)), HttpStatus.OK);
     }
 
