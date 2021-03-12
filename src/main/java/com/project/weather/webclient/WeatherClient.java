@@ -19,7 +19,7 @@ public class WeatherClient {
         this.weatherApiConfiguration = weatherApiConfiguration;
     }
 
-    public Forecast getWeatherForCity(String city) {
+    public Forecast getWeatherForCity(final String city) {
         return callGetMethod(weatherApiConfiguration.getWeatherApiForecastCity(),
                 Forecast.class,
                 city, weatherApiConfiguration.getWeatherApiKey());

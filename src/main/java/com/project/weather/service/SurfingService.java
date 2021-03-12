@@ -32,19 +32,19 @@ public class SurfingService {
         return (isWindNotTooWeak(windSpeed) && isWindNotTooStrong(windSpeed)) && (isTemperatureNotTooLow(temperature) && isTemperatureNotTooHigh(temperature));
     }
 
-    protected boolean isWindNotTooWeak(double windSpeed) {
+    protected boolean isWindNotTooWeak(final double windSpeed) {
         return windSpeed >= surfingConditionsConfiguration.getWindSpeedMin();
     }
 
-    protected boolean isWindNotTooStrong(double windSpeed) {
+    protected boolean isWindNotTooStrong(final double windSpeed) {
         return windSpeed <= surfingConditionsConfiguration.getWindSpeedMax();
     }
 
-    protected boolean isTemperatureNotTooLow(double temperature) {
+    protected boolean isTemperatureNotTooLow(final double temperature) {
         return temperature >= surfingConditionsConfiguration.getTempMin();
     }
 
-    protected boolean isTemperatureNotTooHigh(double temperature) {
+    protected boolean isTemperatureNotTooHigh(final double temperature) {
         return temperature <= surfingConditionsConfiguration.getTempMax();
     }
 
